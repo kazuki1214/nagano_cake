@@ -10,6 +10,58 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+      <nav>
+        <div>
+          <h2>LOGO</h2>
+        </div>
+        <div>
+          <ul>
+            <% if admin_signed_in? %>
+              <li>
+                <%= link_to "商品一覧", admin_items_path %>
+              </li>
+              <li>
+                <%= link_to "会員一覧", admin_customers_path %>
+              </li>
+              <li>
+                <%= link_to "注文履歴一覧", admin_root_path %>
+              </li>
+              <li>
+                <%= link_to "ジャンル一覧", admin_ganeres_path %>
+              </li>
+              <li>
+                <%- link_to "ログアウト", destroy_admin_session_path %>
+              </li>
+            <% else %>
+              <li>
+                <%= link_to "About", about_path %>
+              </li>
+              <li>
+                <%= link_to "商品一覧", items_path %>
+              </li>
+              <li>
+                <%= link_to "新規登録", new_admin_registration_path %>
+              </li>
+              <li>
+                <%= link_to"ログイン", new_admin_session_path %>
+              </li>
+            <% end %>
+            <% if customer_signed_in? %>
+            <% else %>
+            <% end %>
+          </ul>
+        </div>
+      </nav>
+
+    </header>
+
+    <main>
+      <%= yield %>
+    </main>
+
+    <footer>
+
+    </footer>
   </body>
 </html>
