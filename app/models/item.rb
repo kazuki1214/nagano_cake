@@ -6,5 +6,5 @@ class Item < ApplicationRecord
   def with_price
     (price*1.1).floor
   end
-
+  
 end
