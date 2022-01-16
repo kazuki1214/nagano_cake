@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_13_083344) do
+ActiveRecord::Schema.define(version: 2022_01_16_053945) do
 
   create_table "addresses", force: :cascade do |t|
     t.integer "customer_id"
@@ -67,16 +67,8 @@ ActiveRecord::Schema.define(version: 2022_01_13_083344) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "items", force: :cascade do |t|
-    t.integer "genre_id"
-    t.string "name"
-    t.string "image_id"
-    t.text "introduction"
-    t.integer "price"
-    t.boolean "is_active", default: true
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+# Could not dump table "items" because of following StandardError
+#   Unknown type 'sting' for column 'image'
 
   create_table "order_details", force: :cascade do |t|
     t.integer "order_id"
