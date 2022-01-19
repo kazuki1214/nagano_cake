@@ -110,6 +110,9 @@ GEM
       domain_name (~> 0.5)
     i18n (1.8.11)
       concurrent-ruby (~> 1.0)
+    i18n_generators (2.2.2)
+      activerecord (>= 3.0.0)
+      railties (>= 3.0.0)
     io-like (0.3.1)
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
@@ -289,6 +292,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   devise
   enum_help
+  i18n_generators
   jbuilder (~> 2.5)
   jquery-rails
   kaminari (~> 1.2.1)

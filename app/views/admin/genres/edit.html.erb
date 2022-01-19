@@ -2,7 +2,7 @@
   <h2>ジャンル編集</h2>
   <div>
     <p>ジャンル名</p>
-    <%= form_with model: @genre, local: true do |t| %>
+    <%= form_with model: [:admin, @genre], local: true do |t| %>
       <%= t.text_field :name %>
       <%= t.submit "変更を保存する" %>
     <% end %>

@@ -2,9 +2,9 @@
     <h2>ジャンル一覧･追加</h2>
     <div>
     <h3>ジャンル名</h3>
-        <%= form_with model: @new_genre, local: true do |t| %>
-            <% t.text_field :name %>
-            <% t.submit "新規登録" %>
+        <%= form_with model: [:admin,@new_genre], local: true do |t| %>
+            <%= t.text_field :name %>
+            <%= t.submit "新規登録" %>
         <% end %>
     </div>
     <div>
@@ -16,10 +16,10 @@
                 </tr>
             </thead>
             <tbody>
-                <% @genre.each do |a| %>
+                <% @genres.each do |a| %>
                 <tr>
                     <td><%= a.name %></td>
-                    <td><%= link_to "編集する", edit_admin_ganere %></td>
+                    <td><%= link_to "編集する", edit_admin_genre_path(a) %></td>
                 </tr>
                 <% end %>
             </tbody>

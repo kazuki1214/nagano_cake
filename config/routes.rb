@@ -1,6 +1,15 @@
 Rails.application.routes.draw do
 
-  devise_for :customers
+  devise_for :customers, controllers: {
+    sessions: 'customers/sessions',
+    passwords: 'customers/passwords',
+    registrations: 'customers/registrations'
+  }
+   devise_for :admins, controllers: {
+  sessions:      'admins/sessions',
+  passwords:     'admins/passwords',
+  registrations: 'admins/registrations'
+  }
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
@@ -27,11 +36,11 @@ Rails.application.routes.draw do
   end
   resources :addresses, except:[:new, :show]
 
-  devise_for :admins
+
   namespace :admin do
-    root to:"hoems#top"
+    root to: "homes#top"
     resources :items, except:[:destroy]
-    resources :genres, except:[:show, :destroy, :new]
+    resources :genres, except:[:show, :destroy,]
     resources :customers, except:[:new, :create, :destroy]
     resources :orders, only:[:show, :update]
     patch "admin/order_details/:id" => "order_details#update", as:"order_detail_update"
