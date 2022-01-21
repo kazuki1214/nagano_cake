@@ -1,3 +1,10 @@
 // Place all the styles related to the items controller here.
 // They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+// You can use Sass (SCSS) here: http://sass-lang.com
+.item-add{
+  font-size:25px;
+}
+
+.item-add:hover{
+  text-decoration:none;
+}

@@ -13,3 +13,42 @@
  *= require_tree .
  *= require_self
  */
+@import "bootstrap";
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html, body{
+  height:100%;
+}
+
+nav{
+  border:1px solid black;
+}
+
+body{
+  margin:5px;
+  border:1px solid black;
+}
+
+
+.nav-logo{
+  font-size:30px;
+  padding:5px 13px;
+  border:1px solid black;
+}
+
+main{
+  padding:25px;
+  height:85%;
+}
+
+.nav-item{
+  width:105px;
+  padding:3px 0;
+  border-radius:3px;
+  margin-right:20px;
+}

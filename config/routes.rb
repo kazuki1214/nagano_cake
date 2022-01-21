@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     passwords: 'customers/passwords',
     registrations: 'customers/registrations'
   }
-   devise_for :admins, controllers: {
+  devise_for :admins, controllers: {
   sessions:      'admins/sessions',
   passwords:     'admins/passwords',
   registrations: 'admins/registrations'
@@ -40,7 +40,7 @@ Rails.application.routes.draw do
   namespace :admin do
     root to: "homes#top"
     resources :items, except:[:destroy]
-    resources :genres, except:[:show, :destroy,]
+    resources :genres, except:[:show, :destroy]
     resources :customers, except:[:new, :create, :destroy]
     resources :orders, only:[:show, :update]
     patch "admin/order_details/:id" => "order_details#update", as:"order_detail_update"
