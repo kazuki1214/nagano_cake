@@ -1,10 +1,17 @@
-<div>
-  <h2>ジャンル編集</h2>
-  <div>
-    <p>ジャンル名</p>
-    <%= form_with model: [:admin, @genre], local: true do |t| %>
-      <%= t.text_field :name %>
-      <%= t.submit "変更を保存する" %>
-    <% end %>
+<div class="container m-0 p-0">
+  <div class="row mb-4 align-items-center">
+    <div class="col-2 offset-md-2">
+      <h5 class="text-center m-0" style="background-color:whitesmoke;">ジャンル編集</h5>
+    </div>
+  </div>
+
+   <div class="row mb-4">
+      <div class="col-2 ml-md-5">
+          <p >ジャンル名</p>
+      </div>
+      <%= form_with model: [:admin, @genre], local: true do |t| %>
+        <%= t.text_field :name %>
+        <%= t.submit "変更を保存する", class:"btn btn-success ml-5" %>
+      <% end %>
   </div>
 </div>

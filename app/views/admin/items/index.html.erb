@@ -1,19 +1,24 @@
-<div>
-  <div>
-    <h2>商品一覧</h2>
-    <button class="btn rounded-circle btn-outline-light shadow-sm">
-    <%= link_to "＋", new_admin_item_path, class:"item-add text-secondary" %>
-    </button>
+<div class="container m-0 p-0">
+  <div class="row mb-4 align-items-center">
+    <div class="col-2 offset-md-2">
+      <h5 class="text-center m-0" style="background-color:whitesmoke;">商品一覧</h5>
+    </div>
+    <div class="offset-md-6">
+      <button class="btn rounded-circle btn-outline-light shadow-sm">
+      <%= link_to "＋", new_admin_item_path, class:"item-add text-secondary" %>
+      </button>
+    </div>
   </div>
-  <div>
-    <table>
+</div>
+  <div class="d-flex justify-content-center">
+    <table class="table">
       <thead>
         <tr>
-          <td>商品ID</td>
-          <td>商品名</td>
-          <td>税抜価格</td>
-          <td>ジャンル</td>
-          <td>ステータス</td>
+          <th>商品ID</th>
+          <th>商品名</th>
+          <th>税抜価格</th>
+          <th>ジャンル</th>
+          <th>ステータス</th>
         </tr>
       </thead>
       <tbody>
@@ -28,14 +33,13 @@
             <td><%= t.price %></td>
             <td><%= t.genre.name %></td>
             <% if t.is_active == true %>
-              <td>販売中</td>
+              <td class="color-success">販売中</td>
             <% else %>
-              <td>販売停止</td>
+              <td class="color-secondary">販売停止</td>
             <% end %>
           </tr>
         <% end %>
       </tbody>
     </table>
+    <%= paginate @items %>
   </div>
-  <%= paginate @items %>
-</div>

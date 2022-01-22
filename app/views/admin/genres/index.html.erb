@@ -1,32 +1,38 @@
-<div>
-    <h2>ジャンル一覧･追加</h2>
-    <div>
-    <h3>ジャンル名</h3>
+<div class="container m-0 p-0">
+  <div class="row mb-4 align-items-center">
+    <div class="col-3 offset-md-1">
+      <h5 class="text-center m-0" style="background-color:whitesmoke;">ジャンル一覧･追加</h5>
+    </div>
+  </div>
+
+     <div class="row mb-md-4">
+        <div class="col-2 ml-md-5">
+            <p >ジャンル名</p>
+        </div>
         <%= form_with model: [:admin,@new_genre], local: true do |t| %>
-            <%= t.text_field :name %>
-            <%= t.submit "新規登録" %>
+            <%= t.text_field :name , placeholder:"ジャンル名"%>
+            <%= t.submit "新規登録" ,class:"btn btn-success ml-5"  %>
         <% end %>
     </div>
-    <div>
-        <table>
-            <thead>
-                <tr>
-                    <td>ジャンル</td>
-                    <td></td>
-                </tr>
-            </thead>
-            <tbody>
+
+    <div class="row">
+        <div class="col-4">
+            <table class="table ml-md-5">
+                <thead class="thead">
+                    <tr>
+                        <th>　　ジャンル</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
                 <% @genres.each do |a| %>
                 <tr>
-                    <td><%= a.name %></td>
-                    <td><%= link_to "編集する", edit_admin_genre_path(a) %></td>
+                    <td class="td"><%= a.name %></td>
+                    <td class="td text-center"><%= link_to "編集する", edit_admin_genre_path(a), class:"btn btn-success" %></td>
                 </tr>
                 <% end %>
-            </tbody>
-        </table>
+                </tbody>
+            </table>
+        </div>
     </div>
-
 </div>
-
-
-
