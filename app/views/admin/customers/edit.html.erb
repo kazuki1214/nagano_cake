@@ -1,47 +1,98 @@
-<div>
-  <div>
-    <h2><%= @customer.last_name %><%= @customer.first_name %>さんの会員情報編集</h2>
+<div class="container m-0 p-0">
+  <div class="row mb-3 align-items-center">
+    <div class="col-5 offset-md-1">
+      <h5 class="text-center m-0" style="background-color:whitesmoke;"><%= @customer.last_name+@customer.first_name %>さんの会員情報編集</h5>
+    </div>
   </div>
-  <div>
-    <%= form_with model: [:admin, @customer], local: true do |t| %>
-    <div>
-      <p>会員ID</p>
-      <%= @customer.id %>
+
+  <%= form_with model: [:admin, @customer], local: true do |t| %>
+    <div class="row">
+      <div class="col-2 offset-md-1">
+        <p>会員ID</p>
+      </div>
+      <div class="col-9">
+        <%= @customer.id %>
+      </div>
     </div>
-    <div>
-      <p>氏名</p>
-      <%= t.text_field :last_name %>
-      <%= t.text_field :first_name %>
+
+    <div class="row">
+      <div class="col-2 offset-md-1">
+        <p>氏名</p>
+      </div>
+      <div class="col-3">
+        <%= t.text_field :last_name, class: "w-100" %>
+      </div>
+      <div class="col-3">
+        <%= t.text_field :first_name, class: "w-100" %>
+      </div>
     </div>
-    <div>
-      <p>フリガナ</p>
-      <%= t.text_field :last_name_kana %>
-      <%= t.text_field :first_name_kana %>
+
+    <div class="row">
+      <div class="col-2 offset-md-1">
+        <p>フリガナ</p>
+      </div>
+      <div class="col-3">
+        <%= t.text_field :last_name_kana, class: "w-100" %>
+      </div>
+      <div class="col-3">
+        <%= t.text_field :first_name_kana, class: "w-100" %>
+      </div>
     </div>
-    <div>
-      <p>郵便郵便番号</p>
-      <%= t.text_field :postal_code %>
+
+    <div class="row">
+      <div class="col-2 offset-md-1">
+        <p>郵便番号</p>
+      </div>
+      <div class="col-3">
+        <%= t.text_field :postal_code, class: "w-100" %>
+      </div>
     </div>
-    <div>
-      <p>住所</p>
-      <%= t.text_field :address %>
+
+    <div class="row">
+      <div class="col-2 offset-md-1">
+        <p>住所</p>
+      </div>
+      <div class="col-8">
+        <%= t.text_field :address, class: "w-100" %>
+      </div>
     </div>
-    <div>
-      <p>電話番号</p>
-      <%= t.text_field :telephone_number %>
+
+    <div class="row">
+      <div class="col-2 offset-md-1">
+        <p>電話番号</p>
+      </div>
+      <div class="col-3">
+        <%= t.text_field :telephone_number, class: "w-100" %>
+      </div>
     </div>
-    <div>
-      <p>メールアドレス</p>
-      <%= t.text_field :email %>
+
+    <div class="row">
+      <div class="col-2 offset-md-1">
+        <p>メールアドレス</p>
+      </div>
+      <div class="col-3">
+        <%= t.text_field :email, class: "w-100" %>
+      </div>
     </div>
-    <div>
-      <p>会員ステータス</p>
-      <%= t.radio_button :is_deleted, "false" %>
-        <%= t.label :is_deleted, "有効" %>
-      <%= t.radio_button :is_deleted, "true" %>
-        <%= t.label :is_deleted, "退会" %>
+
+    <div class="row">
+      <div class="col-2 offset-md-1">
+        <p>会員ステータス</p>
+      </div>
+      <div>
+        <%= t.radio_button :is_deleted, "false" %>
+          <%= t.label :is_deleted, "有効" %>
+      </div>
+      <div class="mx-3">
+        <%= t.radio_button :is_deleted, "true" %>
+          <%= t.label :is_deleted, "退会" %>
+      </div>
     </div>
-    <%= t.submit "変更を保存" %>
-    <% end %>
-  </div>
+
+    <div class="row">
+      <div class="offset-3">
+        <%= t.submit "変更を保存", class:"btn btn-success px-4 py-2" %>
+      </div>
+    </div>
+  <% end %>
 </div>

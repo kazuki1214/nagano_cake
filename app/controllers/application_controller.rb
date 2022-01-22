@@ -1,6 +1,9 @@
 class ApplicationController < ActionController::Base
   before_action :config_permitted_parameters, if: :devise_controller?
 
+  def after_admins_sign_in_for(resource)
+    admin_root_path
+  end
 
   def after_customers_sign_in_for(resource)
     root_path

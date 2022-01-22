@@ -9,21 +9,17 @@
   text-decoration:none;
 }
 
-.table{
-  width:80%;
-}
 
 thead{
   background-color:whitesmoke;
+  border-top:1px solid black;
 }
 
-.th{
-  border-bottom:none;
+th{
+  border-top:1px solid lightgray;
 }
 
-td{
-  border:none;
-}
+
 
 .introduction{
   height:150px;
@@ -39,5 +35,5 @@ p{
 
 .item-deta{
   align-items:center;
-  font-size:25px;
+  font-size:20px;
 }

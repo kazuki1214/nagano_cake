@@ -12,7 +12,7 @@ class Admin::OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:order_status)
+    params.require(:order).permit(:payment_method,:order_status)
   end
 
 end
