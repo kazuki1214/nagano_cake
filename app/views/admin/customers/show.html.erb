@@ -17,7 +17,7 @@
     </div>
     <div>
       <p>郵便番号</p>
-      <%= @cutomer.postal_code %>
+      <%= @customer.postal_code %>
     </div>
     <div>
       <p>住所</p>
@@ -33,7 +33,7 @@
     </div>
     <div>
       <p>会員ステータス</p>
-      <% if @cutomer.is_deleted == false %>
+      <% if @customer.is_deleted == false %>
         <p>有効</p>
       <% else %>
         <p>退会</p>

@@ -1,14 +1,13 @@
 <div class="container m-0 p-0">
-  <div class="row mb-4 align-items-center">
+  <div class="row mb-5 align-items-center">
     <div class="col-3 offset-2">
       <h5 class="text-center m-0" style="background-color:whitesmoke;">商品新規登録</h5>
     </div>
   </div>
 </div>
 
-<div class="container m-2">
-  <div class="d-flex justify-content-center">
-  <%= form_with model: [:admin, @item], local: true , class:"w-100" do |t| %>
+<%= form_with model: [:admin, @item], local: true  do |t| %>
+  <div class="container m-2">
     <div class="row">
       <div class="col-2 offset-md-3">
         <p>商品画像</p>
@@ -62,8 +61,7 @@
       </div>
     </div>
   </div>
-      <div class="d-flex justify-content-center">
-        <%= t.submit "新規登録", class:"btn btn-success px-4 py-2" %>
-      </div>
-    <% end %>
-</div>
+  <div class="d-flex justify-content-center">
+    <%= t.submit "新規登録", class:"btn btn-success px-4 py-2" %>
+  </div>
+  <% end %>

@@ -1,5 +1,5 @@
 <div class="container m-0 p-0">
-  <div class="row mb-4 align-items-center">
+  <div class="row mb-5 align-items-center">
     <div class="col-2 offset-md-2">
       <h5 class="text-center m-0" style="background-color:whitesmoke;">商品一覧</h5>
     </div>
@@ -33,9 +33,9 @@
             <td><%= t.price %></td>
             <td><%= t.genre.name %></td>
             <% if t.is_active == true %>
-              <td class="color-success">販売中</td>
+              <td class="text-success">販売中</td>
             <% else %>
-              <td class="color-secondary">販売停止</td>
+              <td class="text-secondary">販売停止</td>
             <% end %>
           </tr>
         <% end %>

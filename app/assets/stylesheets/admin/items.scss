@@ -10,15 +10,19 @@
 }
 
 .table{
-  margin:10px 80px;
+  width:80%;
 }
+
 thead{
   background-color:whitesmoke;
 }
 
-thead th{
-  border-top:1px solid #dee2e6;
-  border-bottom:1px solid #dee2e6;
+.th{
+  border-bottom:none;
+}
+
+td{
+  border:none;
 }
 
 .introduction{
@@ -31,4 +35,9 @@ thead th{
 
 p{
   padding:0.25rem;
+}
+
+.item-deta{
+  align-items:center;
+  font-size:25px;
 }
