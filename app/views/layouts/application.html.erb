@@ -14,12 +14,17 @@
   <body>
     <header>
       <nav class="navbar navbar-expand-lg navbar-light">
-        <div class="container-fluid">
-          <h1>
-            <%= link_to "LOGO", items_path, class:"navbar-brand nav-logo " %>
-          </h1>
-
-            <div class="navbar-nav navbar-right">
+        <div class="container-fluid d-flex">
+          <div class="my-auto">
+            <h1>
+              <%= link_to "LOGO", items_path, class:"navbar-brand nav-logo " %>
+            </h1>
+          </div>
+          <% if customer_signed_in? %>
+            <p>ようこそ、<%= current_customer.last_name %>さん</p>
+          <% end %>
+            <div class="navbar-nav navbar-right flex-column">
+              <div class="link-item">
               <% if admin_signed_in? %>
                   <%= link_to "商品一覧", admin_items_path, class:"btn btn-outline-secondary nav-item text-dark"; %>
 
@@ -52,6 +57,10 @@
                   <%= link_to"ログイン", new_customer_session_path, class:"btn btn-outline-secondary nav-item text-dark"; %>
 
               <% end %>
+              </div>
+              <div class="navbar-nav serch justify-content-end mt-3">
+                <button class="serch-button" type="button"></button>
+              </div>
             </div>
         </div>
       </nav>

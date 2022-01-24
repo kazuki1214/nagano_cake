@@ -1,4 +1,4 @@
-class Admin::ItemsController < ApplicationController
+class Admin::ItemsController < Admin::ApplicationsController
   def index
     @items = Item.page(params[:page]).reverse_order
   end

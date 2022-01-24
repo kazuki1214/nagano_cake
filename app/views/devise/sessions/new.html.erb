@@ -1,26 +1,57 @@
-<h2>Log in</h2>
-
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+<div class="container m-0 p-0">
+  <div class="row mb-3">
+    <div class="col-2 offset-md-2">
+      <h5 class="page-name text-center m-0" style="background-color:whitesmoke;">ログイン</h5>
     </div>
-  <% end %>
+  </div>
+
+  <div class="row mb-2">
+    <div class="col-4 offset-md-3">
+      <h5 class="text-center m-0" style="background-color:whitesmoke;">会員の方はこちらからログイン</h5>
+    </div>
+  </div>
+<%= form_with model: @customer, url: customer_session_path, local: true do |f| %>
+  <div class="field mb-4">
+    <div class="row">
+      <div class="col-2 offset-md-3">
+        <%= f.label "メールアドレス", class:"mb-0" %>
+      </div>
+      <div class="col-5">
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"sample@example.com", class:"w-100"; %>
+      </div>
+    </div>
+  </div>
+
+  <div class="field mb-5">
+    <div class="row">
+      <div class="col-2 offset-md-3">
+        <%= f.label "パスワード", class:"mb-0" %>
+      </div>
+      <div class="col-5">
+        <%= f.password_field :password, autocomplete: "current-password", class:"w-100"; %>
+      </div>
+    </div>
+  </div>
 
   <div class="actions">
-    <%= f.submit "Log in" %>
+    <div class="row">
+      <div class="col-2 offset-5">
+        <%= f.submit "ログイン", class:"btn btn-primary w-100"; %>
+      </div>
+    </div>
   </div>
-<% end %>
+  <% end %>
+</div>
 
-<%= render "devise/shared/links" %>
+<div class="container m-0 p-0">
+  <div class="row mb-4 align-items-center">
+    <div class="col-4 offset-md-3">
+      <h5 class="text-center m-0" style="background-color:whitesmoke;">会員登録がお済みでない方</h5>
+    </div>
+  </div>
+  <div class="row">
+    <div class="offset-md-4">
+      <p><%= link_to "こちら", new_customer_registration_path %>　からログインしてください。</p>
+    </div>
+  </div>
+</div>

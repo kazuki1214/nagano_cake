@@ -1,2 +1,80 @@
-<h1>Customers#edit</h1>
-<p>Find me in app/views/customers/edit.html.erb</p>
+<div class="container m-0 p-0">
+  <div class="row mb-3 align-items-center">
+    <div class="col-4 offset-md-2">
+      <h5 class="page-name text-center m-0" style="background-color:whitesmoke;">会員情報編集</h5>
+    </div>
+  </div>
+</div>
+
+  <%= form_with model: @customer, local: true do |t| %>
+  <div class="container">
+    <div class="row">
+      <div class="col-2">
+        <p>氏名</p>
+      </div>
+      <div class="col-3">
+        <%= t.text_field :last_name, class: "w-100" %>
+      </div>
+      <div class="col-3">
+        <%= t.text_field :first_name, class: "w-100" %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-2">
+        <p>フリガナ</p>
+      </div>
+      <div class="col-3">
+        <%= t.text_field :last_name_kana, class: "w-100" %>
+      </div>
+      <div class="col-3">
+        <%= t.text_field :first_name_kana, class: "w-100" %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-2">
+        <p>郵便番号</p>
+      </div>
+      <div class="col-3">
+        <%= t.text_field :postal_code, class: "w-100" %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-2">
+        <p>住所</p>
+      </div>
+      <div class="col-8">
+        <%= t.text_field :address, class: "w-100" %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-2">
+        <p>電話番号</p>
+      </div>
+      <div class="col-3">
+        <%= t.text_field :telephone_number, class: "w-100" %>
+      </div>
+    </div>
+
+    <div class="row mb-2">
+      <div class="col-2">
+        <p>メールアドレス</p>
+      </div>
+      <div class="col-3">
+        <%= t.text_field :email, class: "w-100" %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="offset-2">
+        <%= t.submit "編集内容変更を保存", class:"btn btn-success px-4 py-2 col-3" %>
+      </div>
+      <% end %>
+      <div class="offset-2">
+        <%= redirect_to "退会する", unsubscribe_customers_path, class:"btn btn-danger px-4 py-2 col-1" %>
+      </div>
+    </div>
+  </div>
