@@ -5,6 +5,10 @@ class CartItemsController < ApplicationController
   end
 
   def create
+    @item = Item.new(cart_item_params)
+    @item.customer = current_customer
+    @item.save
+    redirect_to cart_items_path
   end
 
   def update
@@ -16,4 +20,9 @@ class CartItemsController < ApplicationController
   def destroy_all
   end
 
+  private
+
+  def cart_item_params
+    params.require(:cart_item).permit(:item_id,:amount)
+  end
 end

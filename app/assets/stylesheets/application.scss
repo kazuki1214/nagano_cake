@@ -76,3 +76,19 @@ footer{
   height:10%;
   border:1px solid black;
 }
+
+.search-genre{
+  width:150px;
+  height:350px;
+}
+
+.search-genre table{
+  position:relative;
+  border:1px solid black;
+}
+
+.search-genre table th{
+  background-color:white;
+  position:sticky;
+  border-bottom:1px solid black;
+}

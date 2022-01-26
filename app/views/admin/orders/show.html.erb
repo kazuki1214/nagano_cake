@@ -52,7 +52,8 @@
     </div>
     <div class="col-1">
       <%= form_with model: [:admin, @order], local: true do |t| %>
-        <%= t.select :order_status, options_from_collection_for_select(Order.order_status) %>
+        <%= t.select :order_status, Order.order_statuses.keys %>
+        <%= t.submit "更新", class: "btn btn-success px-2 py-2 ml-3" %>
       <% end %>
     </div>
   </div>

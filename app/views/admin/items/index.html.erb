@@ -4,9 +4,7 @@
       <h5 class="page-name text-center m-0" style="background-color:whitesmoke;">商品一覧</h5>
     </div>
     <div class="offset-md-7">
-      <button class="btn rounded-circle btn-outline-light shadow-sm">
-      <%= link_to "＋", new_admin_item_path, class:"item-add text-secondary" %>
-      </button>
+      <%= link_to "＋", new_admin_item_path, class:"btn rounded-circle btn-outline-light shadow-sm item-add text-secondary" %>
     </div>
   </div>
 </div>
@@ -24,7 +22,7 @@
           </tr>
         </thead>
         <tbody>
-          <% @items.reverse_each do |t| %>
+          <% @items.each do |t| %>
             <tr>
               <td><%= t.id %></td>
               <td>
