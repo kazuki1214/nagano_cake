@@ -6,7 +6,7 @@
   </div>
 
   <div class="row">
-    <div class="col-11 offset-md-1">
+    <div class="col-10 offset-md-2">
       <table class="table">
         <thead>
           <tr>
@@ -24,7 +24,7 @@
                   <%= l t.created_at %>
                 <% end %>
               </td>
-              <td><%= t.customer.last_name+t.customer.first_name %></td>
+              <td><%= t.customer.full_name %></td>
               <td><%= t.customer.id.cart_items.id.amount %></td>
               <td><%= t.order_status %></td>
             </tr>

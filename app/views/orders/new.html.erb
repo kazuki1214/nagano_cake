@@ -1,2 +1,70 @@
-<h1>Orders#new</h1>
-<p>Find me in app/views/orders/new.html.erb</p>
+<div class="container m-0 p-0">
+  <div class="row mb-4 align-items-center">
+    <div class="col-3 offset-2">
+      <h5 class="page-name text-center m-0" style="background-color:whitesmoke;">注文情報入力</h5>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <%= form_with model: @order, url: confirm_order_path, local: true do |t| %>
+
+  <div class="payment_method_field">
+    <h5><strong>支払方法</strong></h5>
+    <div class="row">
+      <div class="row">
+        <div class="offset-md-1">
+          <%= t.radio_button :payment_method, Order.payment_methods.key(0) %>
+            <%= t.label :payment_methodt, Order.payment_methods_i18n[:credit_card] %>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="row">
+        <div class="offset-md-1">
+          <%= t.radio_button :payment_method, Order.payment_methods.key(1) %>
+            <%= t.label :payment_methodt, Order.payment_methods_i18n[:transfer] %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="post_field">
+    <h5><strong>お届け先</strong></h5>
+    <div class="row">
+      <%= t.radio_button :select_address, "0" %>
+        <%= t.label :select_address, "ご自身の住所" %>
+      <div class="row">
+        <p>〒<%= current_customer.postal_code %> <%= current_customer.address %><br>
+        <%= current_customer.full_name %>
+      </div>
+    </div>
+    <div class="row">
+      <%= t.radio_button :select_address,  "1"%>
+        <%= t.label :select_address, "登録済住所から選択" %>
+      <div class="row">
+        <%= t.select :address_id, options_from_collection_for_select(current_customer.addresse.all,:id, full_address), class: "w-100" %>
+      </div>
+    </div>
+    <div class="row">
+      <%= t.radio_button :select_address, "2" %>
+        <%= t.label :select_address, "新しいお届け先" %>
+      <div class="row">
+        <p class="col-3">郵便番号(ハイフンなし)</p>
+        <%= t.text_area :postal_code, placeholder: "0000000", class: "col-4 w-100" %>
+      </div>
+      <div class="row">
+        <p class="col-3">住所</p>
+        <%= t.text_area :address, placeholder: "東京渋谷区代々木神園町0-0", class: "col-7 w-100" %>
+      </div>
+      <div class="row">
+        <p class="col-3">宛名</p>
+        <%= t.text_area :name, placeholder: "令和道子", class: "col-4 w-100" %>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <%= t.submit "確認画面に進む", class: "btn btn-primary col-3 px-2 py-3" %>
+    </div>
+  </div>
+  <% end %>
+</div>

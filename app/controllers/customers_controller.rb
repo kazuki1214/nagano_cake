@@ -1,26 +1,26 @@
 class CustomersController < ApplicationController
    before_action :authenticate_customer!
-   
+
   def show
-    @customer = Customer.find(:id)
+    @customer = Customer.find(params[:id])
   end
 
   def edit
-    @customer = Customer.find(:id)
+    @customer = Customer.find(params[:id])
   end
 
   def update
-    customer = Customer.find(:id)
+    customer = Customer.find(params[:id])
     customer.update(customer_params)
     redirect_to my_page_path
   end
 
   def unsubscribe
-    @customer = Customer.find(:id)
+    @customer = Customer.find(params[:id])
   end
 
   def withdraw
-    customer = Customer.find(:id)
+    customer = Customer.find(params[:id])
     customer.update(is_deleted: true)
     reset_session
     redirect_to root_path

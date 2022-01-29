@@ -16,41 +16,43 @@
     </table>
   </div>
 
-  <div class="row">
-    <div class="top-text col-9 ">
-      <div class="d-flex justify-content-centr align-items-center">
-        <div class="top-text my-ato">
-          <p>ようこそ、ながのケーキへ！<br>
-          このサイトは、ケーキ販売のECサイトになります。<br>
-          会員でない人も商品の閲覧はできますが、<br>
-          購入には会員登録が必要になります。
-          </p>
+  <div class="home">
+    <div class="row">
+      <div class="top-text col-9 ">
+        <div class="d-flex justify-content-centr align-items-center">
+          <div class="top-text my-ato">
+            <p>ようこそ、ながのケーキへ！<br>
+            このサイトは、ケーキ販売のECサイトになります。<br>
+            会員でない人も商品の閲覧はできますが、<br>
+            購入には会員登録が必要になります。
+            </p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <div class="row">
-    <div class="col-4">
-      <h4><strong>新着商品</strong></h4>
-    </div>
-  </div>
-  <div class="row">
-    <% @items.each do |t| %>
-    <div class="col-3">
-      <%= attachment_image_tag t, :image, size:"200x150", format:'jpeg' %>
-      <div class="row">
-        <%= t.name %>
-      </div>
-      <div class="row">
-        <%= t.price %>
+    <div class="row">
+      <div class="col-4">
+        <h4><strong>新着商品</strong></h4>
       </div>
     </div>
-    <% end %>
-  </div>
-  <div class="row justify-content-end">
-    <p>
-      <%= link_to "全ての商品を見る", items_path %>
-    </p>
+    <div class="row">
+      <% @items.each do |t| %>
+      <div class="item-image">
+        <%= attachment_image_tag t, :image, size:"200x150", format:'jpeg' %>
+        <div class="item-name">
+          <%= t.name %>
+        </div>
+        <div class="item-price">
+          <%= t.price %>
+        </div>
+      </div>
+      <% end %>
+    </div>
+    <div class="row justify-content-end">
+      <p>
+        <%= link_to "全ての商品を見る", items_path %>
+      </p>
+    </div>
   </div>
 </div>

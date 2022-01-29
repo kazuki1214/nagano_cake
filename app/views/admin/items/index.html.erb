@@ -3,8 +3,10 @@
     <div class="col-3 offset-md-2">
       <h5 class="page-name text-center m-0" style="background-color:whitesmoke;">商品一覧</h5>
     </div>
-    <div class="offset-md-7">
-      <%= link_to "＋", new_admin_item_path, class:"btn rounded-circle btn-outline-light shadow-sm item-add text-secondary" %>
+    <div class="offset-md-6">
+      <%= link_to new_admin_item_path do %>
+        <button class="item-add">＋</button>
+      <% end %>
     </div>
   </div>
 </div>

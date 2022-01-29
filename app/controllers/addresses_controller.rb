@@ -2,30 +2,30 @@ class AddressesController < ApplicationController
    before_action :authenticate_customer!
 
   def index
-    @address = Address.new
-    @addresses = Address.customer.all
+    @address = Addresse.new
+    @addresses = Addresse.customer.all
   end
 
   def create
-    address = Address.new(address_params)
+    address = Addresse.new(address_params)
     address.customer.id = current_customer.id
     address.save
     redirect_to addresses_path
   end
 
   def edit
-    @address = Address.find(:id)
+    @address = Addresse.find(params[:id])
   end
 
   def update
-    address = Address.find(:id)
+    address = Addresse.find(params[:id])
     address.customer.id = current_customer.id
     address.update(address_params)
     redirect_to addresses_path
   end
 
   def destroy
-    address = Address.find(:id)
+    address = Addresse.find(params[:id])
     address.destroy
     redirect_to addresses_path
   end
@@ -33,6 +33,6 @@ class AddressesController < ApplicationController
   private
 
   def address_params
-    params.require(:address).permit(:name, :postal_code, :address)
+    params.require(:addresse).permit(:name, :postal_code, :address)
   end
 end
