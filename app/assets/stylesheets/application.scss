@@ -50,7 +50,7 @@ body{
 
 main{
   padding:30px;
-  height:73%;
+  height:85%;
   border-left:1px solid black;
   border-right:1px solid black;
 }
@@ -67,28 +67,37 @@ main{
 }
 
 .serch-button{
-
   width:230px;
   height:32px;
 }
 
 footer{
-  height:10%;
+  height:80px;
   border:1px solid black;
 }
 
 .search-genre{
-  width:150px;
-  height:350px;
+  width:200px;
+  height:400px;
+  border:1px solid black;
 }
 
 .search-genre table{
   position:relative;
-  border:1px solid black;
 }
 
-.search-genre table th{
+.search-genre table thead{
+  border-top:0;
+}
+
+.search-genre table tr:first-child th{
   background-color:white;
   position:sticky;
+  top:0;
   border-bottom:1px solid black;
+  padding:0;
+}
+
+.search-genre table tr:last-child td{
+  border-bottom:0;
 }

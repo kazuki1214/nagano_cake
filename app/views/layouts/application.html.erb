@@ -25,7 +25,18 @@
           <% end %>
             <div class="navbar-nav navbar-right flex-column">
               <div class="link-item">
-              <% if admin_signed_in? %>
+              <% if customer_signed_in? %>
+
+                  <%= link_to "マイページ", my_page_path, class:"btn btn-outline-secondary nav-item text-dark"; %>
+
+                  <%= link_to "商品一覧", items_path, class:"btn btn-outline-secondary nav-item text-dark"; %>
+
+                  <%= link_to "カート", cart_items_path, class:"btn btn-outline-secondary nav-item text-dark"; %>
+
+                  <%= link_to"ログアウト", destroy_customer_session_path,  method: :delete, class:"btn btn-outline-secondary nav-item text-dark"; %>
+                  
+              <% elsif admin_signed_in? %>
+              
                   <%= link_to "商品一覧", admin_items_path, class:"btn btn-outline-secondary nav-item text-dark"; %>
 
                   <%= link_to "会員一覧", admin_customers_path, class:"btn btn-outline-secondary nav-item text-dark"; %>
@@ -35,16 +46,6 @@
                   <%= link_to "ジャンル一覧", admin_genres_path, class:"btn btn-outline-secondary nav-item text-dark"; %>
 
                   <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class:"btn btn-outline-secondary nav-item text-dark"; %>
-
-              <% elsif customer_signed_in? %>
-
-                  <%= link_to "マイページ", my_page_path, class:"btn btn-outline-secondary nav-item text-dark"; %>
-
-                  <%= link_to "商品一覧", items_path, class:"btn btn-outline-secondary nav-item text-dark"; %>
-
-                  <%= link_to "カート", cart_items_path, class:"btn btn-outline-secondary nav-item text-dark"; %>
-
-                  <%= link_to"ログアウト", destroy_customer_session_path,  method: :delete, class:"btn btn-outline-secondary nav-item text-dark"; %>
 
               <% else %>
 

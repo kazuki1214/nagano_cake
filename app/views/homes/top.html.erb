@@ -1,58 +1,38 @@
-<div class="container d-flex">
-  <div class="search-genre h-100">
-    <table class="table table-borderless">
-      <thead>
-        <tr>
-          <th>ジャンル検索</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @genres.reverse_each do |t| %>
-        <tr>
-          <td><%= t.name %></td>
-        </tr>
-        <% end %>
-      </tbody>
-    </table>
-  </div>
+<div class="d-flex ml-5">
+  <%= render 'homes/genres', genres: @genres %>
 
-  <div class="home">
-    <div class="row">
-      <div class="top-text col-9 ">
-        <div class="d-flex justify-content-centr align-items-center">
-          <div class="top-text my-ato">
+  <div class="home pl-5">
+      <div class="home-image d-flex justify-content-center">
+          <div class="top-text my-auto py-3 pl-3">
             <p>ようこそ、ながのケーキへ！<br>
             このサイトは、ケーキ販売のECサイトになります。<br>
             会員でない人も商品の閲覧はできますが、<br>
             購入には会員登録が必要になります。
             </p>
           </div>
-        </div>
       </div>
-    </div>
 
-    <div class="row">
-      <div class="col-4">
+      <div class="new-item my-3">
         <h4><strong>新着商品</strong></h4>
       </div>
-    </div>
-    <div class="row">
+
+    <div class="row pl-3">
       <% @items.each do |t| %>
-      <div class="item-image">
-        <%= attachment_image_tag t, :image, size:"200x150", format:'jpeg' %>
-        <div class="item-name">
+        <%= link_to item_path(t), class:"top-item-image" do %>
+        <%= attachment_image_tag t, :image, size:"220x180", format:'jpeg' %>
+        <div class="top-item-name">
           <%= t.name %>
         </div>
-        <div class="item-price">
-          <%= t.price %>
+        <div class="top-item-price">
+          ¥<%= t.with_tax_price %>
         </div>
-      </div>
+        <% end %>
       <% end %>
     </div>
-    <div class="row justify-content-end">
-      <p>
-        <%= link_to "全ての商品を見る", items_path %>
-      </p>
-    </div>
   </div>
+</div>
+<div class="d-flex justify-content-end ml-auto mr-5">
+  <p class="m-0">
+    <%= link_to "全ての商品を見る>", items_path %>
+  </p>
 </div>

@@ -1,46 +1,20 @@
-<div class="container d-flex">
-  <div class="search-genre h-100">
-    <table class="table table-borderless">
-      <thead>
-        <tr>
-          <th>ジャンル検索</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @genres.reverse_each do |t| %>
-        <tr>
-          <td><%= t.name %></td>
-        </tr>
-        <% end %>
-      </tbody>
-    </table>
+<div class="d-flex">
+  <%= render 'homes/genres', genres: @genres %>
+  <div class="show-item-image mr-md-5">
+    <%= attachment_image_tag @item, :image , size:"300x200", format:'jpeg' %>
   </div>
-
-  <div class="row item">
-    <div class="row item-text">
-      <div clss="col-5">
-        <%= attachment_image_tag :image, class:"w-100", format: "jpeg" %>
-      </div>
-      <div class="col-7">
-        <div class="row">
-          <h5><%= @item.name %></h5>
-        </div>
-        <div class="row">
-          <%= @item.introduction %>
-        </div>
-        <div class="align-items-end">
-          <h6>¥<%= @item.price %>(税込)</h6>
-        </div>
-      </div>
+  <div class="show-item-introduction">
+    <h4><%= @item.name %></h4>
+    <%= @item.introduction %>
+    <div class="mt-5">
+      <h5>¥<%= @item.with_tax_price %>(税込)</h5>
     </div>
-    <div class="item-price">
-      <div class="row">
-        <%= form_with model: @cart_item, url: cart_item_path, local: true do |t| %>
+    <div class="cart-item-in mt-5">
+      <%= form_with model: @cart_item, url: cart_item_path, local: true do |t| %>
         <%= t.hidden_field :item_id, value: @item.id %>
-        <%= t.select :amount, *[1..10], placeholder: "個数選択", class:"col-3 offset-md-5" %>
-        <%= t.submit "カートに入れる", class:"btn btn-success px-4 py-2 col-3 offset-1" %>
-        <% end %>
-      </div>
+        <%= t.select :amount, *[1..10], {include_blank: "個数選択" }, { class: 'item-amount-select' } %>
+        <%= t.submit "カートに入れる", class:"btn btn-success px-3 py-1  ml-5" %>
+      <% end %>
     </div>
   </div>
 </div>

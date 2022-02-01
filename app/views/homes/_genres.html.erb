@@ -1,0 +1,16 @@
+  <div class="search-genre mr-5">
+    <table class="table table-borderless">
+      <thead class="text-center">
+        <tr>
+          <th>ジャンル検索</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @genres.each do |t| %>
+        <tr>
+          <td><%= t.name %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>

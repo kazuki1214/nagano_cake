@@ -1,38 +1,28 @@
-<div class="container d-flex">
-  <div class="search-genre h-100">
-    <table class="table table-borderless">
-      <thead>
-        <tr>
-          <th>ジャンル検索</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @genres.reverse_each do |t| %>
-        <tr>
-          <td><%= t.name %></td>
-        </tr>
-        <% end %>
-      </tbody>
-    </table>
-  </div>
-  <div class="row">
-    <h3 class="d-inline">商品一覧</h3>
-    <h4 class="d-inline">（全<%= @items.count %>件）</h4>
-  </div>
-  <div class="row d-wrap">
-    <% @items.each do |t| %>
-    <div class="col-3">
-      <%= attachment_image_tag t, :image, size:"200x150", format:'jpeg' %>
-      <div class="row">
-        <%= t.name %>
+<div class="d-flex ml-5">
+  <%= render 'homes/genres', genres: @genres %>
+
+  <div class="item-index">
+    <div class="item-index-text mb-4">
+      <h3 class="d-inline">商品一覧</h3>
+      <h4 class="d-inline">（全<%= @items.count %>件）</h4>
+     </div>
+    <div class="d-flex flex-wrap">
+      <% @items.each do |t| %>
+      <%= link_to item_path(t) do %>
+      <div class="index-item-image">
+        <%= attachment_image_tag t, :image, size:"220x180", format:'jpeg' %>
+        <div class="item-index-name mt-2">
+          <%= t.name %>
+        </div>
+        <div class="index-item-price mt-2">
+          ¥<%= t.with_tax_price %>
+        </div>
       </div>
-      <div class="row">
-        <%= t.price %>
+      <% end %>
+      <% end %>
       </div>
+    <div class="item-index-paginate justify-content-center">
+      <%= paginate @items %>
     </div>
-    <% end %>
-  </div>
-  <div class="row justify-content-center">
-    <%= paginate @items %>
   </div>
 </div>

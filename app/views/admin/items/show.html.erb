@@ -1,6 +1,6 @@
 <div class="container m-0 p-0">
       <div class="row mb-5 align-items-center">
-        <div class="col-3 offset-md-2">
+        <div class="col-2 offset-md-2">
           <h5 class="page-name text-center m-0" style="background-color:whitesmoke;">商品詳細</h5>
         </div>
     </div>
@@ -43,7 +43,7 @@
                     (税抜価格）</p>
                 </div>
             <div class="col-8 item-deta">
-                    <p><%= @item.with_price %>(<%= @item.price %>)円</p>
+                    <p><%= @item.with_tax_price %>(<%= @item.price %>)円</p>
                 </div>
             </div>
             <div class="row">

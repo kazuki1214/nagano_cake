@@ -24,9 +24,12 @@ Rails.application.routes.draw do
       delete :destroy_all
     end
   end
-  resources :orders, except:[:edit, :update, :destroy]
-  post "orders/confirm" => "orders#confirm", as: "confirm_order"
-  get "orders/thanks" => "orders#thanks", as: "thanks_order"
+  resources :orders, except:[:edit, :update, :destroy] do
+    collection do
+     post :confirm
+      get :thanks
+    end
+  end
 
   resources :addresses, except:[:new, :show]
 
