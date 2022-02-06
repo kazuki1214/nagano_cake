@@ -1,11 +1,13 @@
-<div class="w-100 h-100 d-flex justify-content-center">
-  <div class="confirm-text">
-    <p class="m-3"><storng>本体に退会しますか？</storng></p>
-    <p>退会すると、会員登録情報や<br>
-    これまでの購入履歴が閲覧できなくなります。<br>
-    退会する場合は、「退会する」をクリックしてください。
-    </p>
+<div class="w-100 h-100 text-center">
+  <div class="confirm">
+    <div class="confirm-text mb-5">
+      <h4 class="my-5"><strong>本体に退会しますか？</strong></h4>
+      <h5>退会すると、会員登録情報や<br>
+      これまでの購入履歴が閲覧できなくなります。<br>
+      退会する場合は、「退会する」をクリックしてください。
+      </h5>
+    </div>
+    <%= link_to "退会しない", my_page_path, class:"confirm-method btn btn-primary px-4 py-1 mr-3" %>
+    <%= link_to "退会する",withdraw_customers_path, class:"confirm-method btn btn-danger px-4 py-1", method: :patch %>
   </div>
-  <%= link_to "退会しない", my_page_path, class:"btn btn-primary px-4 py-2 mr-2" %>
-  <%= link_to "退会する",withdraw_customers_path, class:"btn btn-danger px-4 py-2", method: :patch %>
 </div>

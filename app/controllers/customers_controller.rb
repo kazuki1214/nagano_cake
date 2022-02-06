@@ -14,12 +14,12 @@ class CustomersController < ApplicationController
     if customer.update(customer_params)
       redirect_to my_page_path
     else
-      render edit_customers_path(customer)
+      render :edit
     end
   end
 
   def unsubscribe
-    @customer = Customer.find(params[:id])
+    @customer = current_customer
   end
 
   def withdraw
@@ -32,7 +32,7 @@ class CustomersController < ApplicationController
   private
 
   def customer_params
-    params.require(:customer).permit(:last_name, :first_name, :last_name_kana, :first_name_kana, :postal_code, :address, :telephone_number,
+    params.require(:customer).permit(:last_name, :first_name, :last_name_kana, :first_name_kana, :postal_code, :address, :telephone_number, :email,
     :is_deleted)
   end
 

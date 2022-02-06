@@ -1,20 +1,23 @@
 <div class="d-flex">
   <%= render 'homes/genres', genres: @genres %>
-  <div class="show-item-image mr-md-5">
-    <%= attachment_image_tag @item, :image , size:"300x200", format:'jpeg' %>
-  </div>
-  <div class="show-item-introduction">
-    <h4><%= @item.name %></h4>
-    <%= @item.introduction %>
-    <div class="mt-5">
-      <h5>¥<%= @item.with_tax_price %>(税込)</h5>
+
+  <div class="show-item ml-5 d-flex flex-wrap">
+    <div class="show-item-image mr-md-5">
+      <%= attachment_image_tag @item, :image , size:"300x200", format:'jpeg' %>
     </div>
-    <div class="cart-item-in mt-5">
-      <%= form_with model: @cart_item, url: cart_item_path, local: true do |t| %>
-        <%= t.hidden_field :item_id, value: @item.id %>
-        <%= t.select :amount, *[1..10], {include_blank: "個数選択" }, { class: 'item-amount-select' } %>
-        <%= t.submit "カートに入れる", class:"btn btn-success px-3 py-1  ml-5" %>
-      <% end %>
+    <div class="show-item-introduction">
+      <h4><%= @item.name %></h4>
+      <%= @item.introduction %>
+      <div class="mt-5">
+        <h5>¥<%= @item.with_tax_price.to_s(:delimited) %>(税込)</h5>
+      </div>
+      <div class="cart-item-in mt-5">
+        <%= form_with model: @cart_item, local: true do |t| %>
+          <%= t.hidden_field :item_id, value: @item.id %>
+          <%= t.select :amount, *[1..10], {include_blank: "個数選択" }, { class: 'item-amount-select mb-2' } %>
+          <%= t.submit "カートに入れる", class:"btn btn-success px-3 py-1  ml-md-5" %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

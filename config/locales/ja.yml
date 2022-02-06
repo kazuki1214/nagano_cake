@@ -218,3 +218,9 @@ ja:  # 日本語の設定を行う
         making: "制作中"
         ready_to_ship: "発送準備中"
         sent: "発送済み"
+    order_detail:
+      making_status:
+        makimg_out: "制作不可"
+        making_wait: "制作待ち"
+        making: "制作中"
+        make_up: "制作完了"

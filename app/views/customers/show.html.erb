@@ -1,19 +1,19 @@
 <div class="container m-0 p-0">
   <div class="row mb-3">
-    <div class="col-2 offset-md-2">
+    <div class="col-md-2 offset-md-2">
       <h5 class="page-name text-center m-0" style="background-color:whitesmoke;">マイページ</h5>
     </div>
   </div>
 
   <div class="my-page ml-5">
     <div class=" row mb-2">
-      <div class="my-page-text col-2">
+      <div class="my-page-text col-md-2">
         <h5><strong>登録情報</strong></h5>
       </div>
         <%= link_to "編集する", edit_customers_path, class:"btn btn-success px-4 py-2" %>
     </div>
     <div class="customer-deta row">
-      <table class="table col-7 mb-3">
+      <table class="table col-md-7 mb-3">
         <tr>
           <th>氏名</th>
           <td><%= @customer.last_name %>　<%= @customer.first_name %></td>
@@ -41,13 +41,13 @@
       </table>
     </div>
     <div class="row mb-2">
-      <div class="my-page-text col-2">
+      <div class="my-page-text col-md-2">
         <h5 class="mr-2"><strong>配送先</strong></h5>
       </div>
       <%= link_to "一覧を見る", addresses_path, class:"btn btn-primary px-4 py-2" %>
     </div>
     <div class="row mb-2">
-      <div class="my-page-text col-2">
+      <div class="my-page-text col-md-2">
         <h5 class="mr-2"><strong>注文履歴</strong></h5>
       </div>
       <%= link_to "一覧を見る", orders_path,  class:"btn btn-primary px-4 py-2" %>

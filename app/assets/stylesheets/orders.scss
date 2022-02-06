@@ -8,3 +8,32 @@
 .thank-text{
   line-height:500px;
 }
+
+.confirm_table{
+  border-collapse:collapse;
+}
+
+.confirm_table tr{
+  height:48.5px;
+}
+
+.confirm_table th{
+  background-color:whitesmoke;
+}
+
+.confirm_table td, .confirm_table th{
+  border:1px solid black;
+}
+
+.order_table{
+  border:2px solid black;
+  border-collapse:collapse;
+}
+
+.order_table tr:last-child{
+  border-bottom:2px solid black;
+}
+
+.corder_table tr, .order_table td, .order_table th{
+  border:2px solid black;
+}

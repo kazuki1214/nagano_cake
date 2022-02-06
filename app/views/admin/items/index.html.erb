@@ -1,6 +1,6 @@
 <div class="container m-0 p-0">
-  <div class="row mb-5 align-items-center">
-    <div class="col-3 offset-md-2">
+  <div class="row mb-3 align-items-center">
+    <div class="col-md-3 offset-md-2">
       <h5 class="page-name text-center m-0" style="background-color:whitesmoke;">商品一覧</h5>
     </div>
     <div class="offset-md-6">
@@ -12,8 +12,8 @@
 </div>
 <div class="container">
   <div class="row">
-    <div class="col-12">
-      <table class="table table-borderless">
+    <div class="col-md-12">
+      <table class="admin-items table table-borderless">
         <thead>
           <tr>
             <th>商品ID</th>
@@ -32,7 +32,7 @@
                 <%= t.name %>
                 <% end %>
               </td>
-              <td><%= t.price %></td>
+              <td><%= t.price.to_s(:delimited) %></td>
               <td><%= t.genre.name %></td>
               <% if t.is_active == true %>
                 <td class="text-success">販売中</td>
@@ -46,6 +46,8 @@
     </div>
   </div>
   <div class="d-flex justify-content-center">
-    <%= paginate @items %>
+    <div class="admin-page">
+      <%= paginate @items %>
+    </div>
   </div>
 </div>

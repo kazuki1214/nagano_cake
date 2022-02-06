@@ -1,59 +1,59 @@
 <div class="container m-0 p-0">
   <div class="row mb-5 align-items-center">
-    <div class="col-3 offset-md-2">
+    <div class="col-md-3 offset-md-2">
       <h5 class="page-name text-center m-0" style="background-color:whitesmoke;">商品編集</h5>
     </div>
   </div>
 </div>
 
 <%= form_with model: [:admin, @item], local: true  do |t|  %>
-<div class="container">
+<div class="admin-item container">
     <div class="row">
-      <div class="col-2 offset-md-3">
+      <div class="col-md-2 offset-md-3">
         <p>商品画像</p>
       </div>
-      <div class="col-4">
+      <div class="col-md-4">
         <%= t.attachment_field :image %>
       </div>
     </div>
     <div class="row">
-      <div class="col-2 offset-md-3">
+      <div class="col-md-2 offset-md-3">
         <p>商品名</p>
       </div>
-      <div class="col-4">
-        <%= t.text_field :name, placeholder:"商品名", class:"w-100" %>
+      <div class="col-md-4">
+        <%= t.text_fiemd-ld :name, placeholder:"商品名", class:"w-100" %>
       </div>
     </div>
     <div class="row">
-      <div class="col-2 offset-md-3">
+      <div class="col-md-2 offset-md-3">
         <p>商品説明</p>
       </div>
-      <div class="col-4">
+      <div class="col-md-4">
         <%= t.text_area :introduction, placeholder:"ここに説明文を記述します", class:"w-100 introduction" %>
       </div>
     </div>
     <div class="row">
-      <div class="col-2 offset-md-3">
+      <div class="col-md-2 offset-md-3">
         <p>ジャンル</p>
       </div>
-      <div class="col-4">
+      <div class="col-md-4">
         <%= t.select :genre_id, options_from_collection_for_select(Genre.all, :id, :name), class:"w-100" %>
       </div>
     </div>
     <div class="row">
-      <div class="col-2 offset-md-3">
+      <div class="col-md-2 offset-md-3">
         <p>税抜価格</p>
       </div>
-      <div class="col-4">
+      <div class="col-md-4">
         <%= t.text_field :price, placeholder:"1000", class:"w-100"%>
       </div>
       <span class="pt-1">円</span>
     </div>
     <div class="row">
-      <div class="col-2 offset-md-3">
+      <div class="col-md-2 offset-md-3">
         <p>販売ステータス</p>
       </div>
-      <div class="col-4">
+      <div class="col-md-4">
         <%= t.radio_button :is_active, "true" %>
         <%= t.label :is_active, "販売中", class:"radio-inline" %>
         <%= t.radio_button :is_active, "false" %>

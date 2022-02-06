@@ -1,53 +1,53 @@
 <div class="container m-0 p-0">
-  <div class="row mb-3 align-items-center">
-    <div class="col-4 offset-md-1">
+  <div class="row mb-5 align-items-center">
+    <div class="col-md-4 offset-md-1">
       <h5 class="page-name text-center m-0" style="background-color:whitesmoke;">配送先登録/一覧</h5>
     </div>
   </div>
 </div>
 
 <div class="container">
-  <%= form_with model: @address, local: true do |t| %>
+  <%= form_with model: @address, local: true, class: "mb-5" do |t| %>
     <div class="row">
-      <div class="col-2">
+      <div class="col-md-2">
         <p>郵便番号</p>
       </div>
-      <div class="col-3">
-        <%= t.text_field :postal_code, class: "w-100" %>
+      <div class="col-md-3">
+        <%= t.text_field :postal_code, placeholder: "0000000", class: "w-100" %>
       </div>
     </div>
 
     <div class="row">
-      <div class="col-2">
+      <div class="col-md-2">
         <p>住所</p>
       </div>
-      <div class="col-8">
-        <%= t.text_field :address, class: "w-100" %>
+      <div class="col-md-7">
+        <%= t.text_field :address, placeholder: "東京渋谷区代々木神園町0-0", class: "w-100" %>
       </div>
     </div>
 
     <div class="row">
-      <div class="col-2">
+      <div class="col-md-2">
         <p>宛名</p>
       </div>
-      <div class="col-3">
-        <%= t.text_field :name, class: "w-100" %>
+      <div class="col-md-3">
+        <%= t.text_field :name, placeholder: "令和道子", class: "w-100" %>
       </div>
-      <div class="ml-auto">
-        <%= t.submit "新規登録", class:"btn btn-success px-4 py-2" %>
+      <div class="offset-md-4 col-md-2 p-0">
+        <%= t.submit "新規登録", class:"btn btn-success px-4 py-1 w-100" %>
       </div>
     </div>
   <% end %>
 
   <div class="row">
-    <div class="col-10">
+    <div class="col-md-10">
       <table class="table table-bordered">
         <thead>
           <tr>
-            <th>郵便番号</th>
-            <th>住所</th>
-            <th>宛名</th>
-            <th></th>
+            <th width="12%">郵便番号</th>
+            <th width="45%">住所</th>
+            <th width="15%">宛名</th>
+            <th colspan="2"></th>
           </tr>
         </thead>
         <tbody>
@@ -56,7 +56,7 @@
             <td><%= t.postal_code %></td>
             <td><%= t.address %></td>
             <td><%= t.name %></td>
-            <td><%= link_to "編集する", edit_address_path(t), class:"btn btn-success px-2 py-1" %> <%= link_to "削除する", address_path(t), class: "btn btn-danger px-2 py-1" %></td>
+            <td><%= link_to "編集する", edit_address_path(t), class:"btn btn-success px-2 py-1" %> <%= link_to "削除する", address_path(t), method: :delete,  class: "btn btn-danger px-2 py-1" %></td>
           </tr>
           <% end %>
         </tbody>

@@ -1,12 +1,12 @@
 <div class="container m-0 p-0">
   <div class="row mb-4 align-items-center">
-    <div class="col-3 offset-md-2">
+    <div class="col-md-3 offset-md-2">
       <h5 class="page-name text-center m-0" style="background-color:whitesmoke;">注文履歴一覧</h5>
     </div>
   </div>
 </div>
 
-<table class="order-index table w-100 border">
+<table class="order_table w-100 ">
   <thead>
     <tr>
       <th>注文日</th>
@@ -20,7 +20,7 @@
   <tbody>
     <% @orders.each do |t| %>
     <tr>
-      <td><%= l t.create_at %></td>
+      <td><%= t.created_at.strftime("%Y/%m/%d") %></td>
       <td>〒<%= t.postal_code %><br>
       <%= t.address %><br>
       <%= t.name %>
@@ -30,9 +30,9 @@
         <%= f.item.name %><br>
       <% end %>
       </td>
-      <td><%= t.total_payment %>円</td>
+      <td><%= t.total_payment.to_s(:delimited) %>円</td>
       <td><%= t.order_status_i18n %></td>
-      <td><%= link_to "注文する", order_path(t), class: "btn btn-primary px-2 py-2" %></td>
+      <td class="text-center"><%= link_to "表示する", order_path(t), class: "btn btn-primary px-2 py-1" %></td>
     </tr>
     <% end %>
   </tbody>

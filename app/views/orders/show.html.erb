@@ -1,17 +1,19 @@
 <div class="container m-0 p-0">
   <div class="row mb-4 align-items-center">
-    <div class="col-3 offset-md-2">
+    <div class="col-md-3 offset-md-2">
       <h5 class="page-name text-center m-0" style="background-color:whitesmoke;">注文履歴詳細</h5>
     </div>
   </div>
+</div>
 
+<div class="container">
   <div class="row">
-    <div class="order-deta col-6">
-      <p>注文情報</p>
-      <table class="table w-100">
+    <div class="order-deta col-md-6 mb-4">
+      <p><strong>注文情報</strong></p>
+      <table class="confirm_table w-100">
         <tr>
           <th>注文日</th>
-          <td><%= l @order.create_at %></td>
+          <td><%= @order.created_at.strftime("%Y/%m/%d/") %></td>
         </tr>
         <tr>
           <th>配送先</th>
@@ -22,7 +24,7 @@
         </tr>
         <tr>
           <th>支払方法</th>
-        <td><%= @order.total_payment_i18n %></td>
+        <td><%= @order.payment_method_i18n %></td>
         </tr>
         <tr>
           <th>ステータス</th>
@@ -30,28 +32,30 @@
         </tr>
       </table>
     </div>
-    <div class="payment-deta col-4">
-      <p>請求情報</p>
-      <table class="table w-100">
+
+    <div class="payment-deta col-md-4 mb-4">
+      <p><strong>請求情報</strong></p>
+      <table class="confirm_table w-100">
         <tr>
           <th>商品合計</th>
-          <td><%= @order.total_payment - @order.shipping_cost %></td>
+          <td><%= (@order.total_payment - @order.shipping_cost).to_s(:delimited) %></td>
         </tr>
         <tr>
           <th>配送料</th>
-          <td><%= @order.shipping_cost %></td>
+          <td><%= @order.shipping_cost.to_s(:delimited) %></td>
         </tr>
         <tr>
           <th>ご請求額</th>
-          <td><%= @order.total_payment %></td>
+          <td><%= @order.total_payment.to_s(:delimited) %></td>
         </tr>
       </table>
     </div>
   </div>
+
   <div class="row">
-    <div class="order-content col-8">
-      <p>注文内容</p>
-      <table class="table w-100">
+    <div class="order-content col-md-8">
+      <p><strong>注文内容</strong></p>
+      <table class="confirm_table w-100">
         <thead>
           <tr>
             <th>商品</th>
@@ -64,9 +68,9 @@
           <% @order.order_details.each do |t| %>
           <tr>
             <td><%= t.item.name %></td>
-            <td><%= t.price %></td>
+            <td><%= t.price.to_s(:delimited) %></td>
             <td><%= t.amount %></td>
-            <td><%= t.item.with_tax_price %></td>
+            <td><%= t.item.with_tax_price.to_s(:delimited) %></td>
           </tr>
           <% end %>
         </tbody>

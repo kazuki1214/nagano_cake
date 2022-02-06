@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
 
-  devise_for :customers
 
   devise_for :admins, controllers: {
   sessions:      'admins/sessions',
-  passwords:     'admins/passwords',
+  passwords:     'admins/passwords'
   }
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
@@ -20,7 +19,7 @@ Rails.application.routes.draw do
     end
   end
   resources :cart_items, except:[:new, :show, :edit] do
-    member do
+    collection do
       delete :destroy_all
     end
   end
@@ -42,5 +41,7 @@ Rails.application.routes.draw do
     resources :orders, only:[:show, :update]
     patch "admin/order_details/:id" => "order_details#update", as:"order_detail_update"
   end
+
+  devise_for :customers, controllers:{ registrations: 'customers/registrations'}
 
 end

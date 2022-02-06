@@ -2,7 +2,23 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-thead{
-  background-color:whitesmoke;
-  border-top:1px solid black;
+.order-table thead{
+  border-top:1px solid #dee2e6;
+}
+.order-table tr:last-child td{
+  border-bottom:1px solid #dee2e6;
+}
+
+.payment-table th, .payment-table td{
+  font-size:23px;
+}
+
+.payment{
+  display:flex;
+  align-items:end;
+}
+
+.status-select{
+  width:100px;
+  height:30px;
 }

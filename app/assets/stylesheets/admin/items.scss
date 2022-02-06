@@ -11,17 +11,13 @@
  box-shadow:2px 2px lightgrey;
 }
 
-
-thead{
-  background-color:whitesmoke;
-  border-top:1px solid black;
+.admin-items tr th{
+  border-top:2px solid #dee2e6;
 }
 
-th{
-  border-top:1px solid lightgray;
+.admin-items tr:last-child td{
+  border-bottom:1px solid #dee2e6;
 }
-
-
 
 .introduction{
   height:150px;
@@ -31,7 +27,7 @@ th{
   width:100%;
 }
 
-p{
+.admin-item p{
   padding:0.25rem;
 }
 
@@ -39,3 +35,4 @@ p{
   align-items:center;
   font-size:20px;
 }
+

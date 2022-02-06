@@ -5,14 +5,14 @@ class Customer < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :cart_items, dependent: :destroy
-  has_many :addressses, dependent: :destroy
+  has_many :addresses, dependent: :destroy
   has_many :orders, dependent: :destroy
 
   validates :last_name, presence: true
   validates :first_name, presence: true
   validates :last_name_kana, presence: true, format: { with: /\A[\p{katakana}　ー]+\z/ }
   validates :first_name_kana, presence: true, format: { with: /\A[\p{katakana}　ー]+\z/ }
-  validates :postal_code, presence: true, format: { with: /\A\d{7}\z/ }
+  validates :postal_code, presence: true, format: { with: /\A[0-9]{7}\z/ }
   validates :address, presence: true
   validates :telephone_number, presence: true, format: { with: /\A\d{10}\z|\A\d{11}\z/ }
 
