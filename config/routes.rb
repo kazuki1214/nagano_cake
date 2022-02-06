@@ -42,6 +42,9 @@ Rails.application.routes.draw do
     patch "admin/order_details/:id" => "order_details#update", as:"order_detail_update"
   end
 
-  devise_for :customers, controllers:{ registrations: 'customers/registrations'}
+  devise_for :customers, controllers:{
+    registrations: 'customers/registrations',
+    sessions: 'customers/sessions'
+  }
 
 end
