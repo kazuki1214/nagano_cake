@@ -94,6 +94,12 @@ footer{
   position:relative;
 }
 
+.search-genre table tbody{
+  overflow-y:scroll;
+  height:376px;
+  display:block;
+}
+
 .search-genre table thead{
   border-top:0;
 }
