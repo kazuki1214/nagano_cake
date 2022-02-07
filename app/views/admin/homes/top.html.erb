@@ -26,7 +26,7 @@
                   <%= t.created_at.strftime("%Y/%m/%d %H:%M:%S") %>
                 <% end %>
               </td>
-              <td><%= t.name %></td>
+              <td><%= t.customer.full_name %></td>
               <td><%= t.order_details.all.sum(:amount) %></td>
               <td><%= t.order_status %></td>
             </tr>
